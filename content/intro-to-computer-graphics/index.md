@@ -4,7 +4,7 @@ Summary: Graphics Programming Notes
 Tags:
 - BackLink
 date: 24-01-03
-Template: page
+Template: subjectPage
 Params:
     BackLink: ""
     BackLinkText: all subjects

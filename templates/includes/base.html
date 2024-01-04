@@ -1,0 +1,27 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/static/css/style.css">
+
+        {{template "header" .}}
+
+        {{template "includeScripts" .}}
+
+    </head>
+
+    <body>
+        {{template "navbar" .}}
+
+        {{template "content" .}}
+
+        <footer>
+            {{template "footer" .}}
+        </footer>
+    </body>
+
+</html>
+{{end}}

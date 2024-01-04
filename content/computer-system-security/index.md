@@ -4,10 +4,7 @@ Summary: Security Notes
 Tags:
 - BackLink
 date: 24-01-03
-Template: page
-Params:
-    BackLink:
-    BackLinkText: all subjects
+Template: subjectPage
 ---
 
 ## Topics

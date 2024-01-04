@@ -1,0 +1,20 @@
+{{template "base" .}}
+
+{{define "header"}}
+    <title>{{.Title}}</title>
+{{end}}
+
+{{define "content"}}
+
+    <h1>{{.Title}}</h1>
+    <p class="subtitle">{{.Summary}}</p>
+    
+    <h4>
+        <a href="/">&#8592;  Back to all subjects</a>
+    </h4>
+
+    <hr>
+
+    {{ .Body }}
+
+{{end}}

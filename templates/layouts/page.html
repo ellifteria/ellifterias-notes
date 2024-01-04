@@ -1,0 +1,31 @@
+{{template "base" .}}
+
+{{define "header"}}
+    <title>{{.Title}}</title>
+{{end}}
+
+{{define "content"}}
+
+    <h1>{{.Title}}</h1>
+    <p class="subtitle">{{.Summary}}</p>
+
+    {{if or .PageParams.BackLink .PageParams.BackLinkText}}
+        <h4>
+            {{if .PageParams.BackLink}}
+                <a href="/{{.PageParams.BackLink}}/index.html">
+            {{else}}    
+                <a href="/">
+            {{end}}
+            &#8592;  Back 
+            {{if .PageParams.BackLinkText}}
+                to {{.PageParams.BackLinkText}}
+            {{end}}
+            </a>
+        </h4>
+    {{end}}
+
+    <hr>
+
+    {{ .Body }}
+
+{{end}}
