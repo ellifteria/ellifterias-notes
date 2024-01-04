@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/static/css/style.css">
+
+        
+    <title>Writing Programming Languages in Racket</title>
+
+
+        
+
+<script type="text/javascript" id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+
+    </head>
+
+    <body>
+        
+
+    <nav class="menu">
+        <ul>
+            <li><a href="/">Home</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+
+
+        
+
+    <h1>Writing Programming Languages in Racket</h1>
+    <p class="subtitle">A First Meta-Program</p>
+
+    
+        <h4>
+            
+                <a href="/programming-languages/index.html">
+            
+            &#8592;  Back 
+            
+                to Programming Languages
+            
+            </a>
+        </h4>
+    
+
+    <hr>
+
+    <p>We'll use <code>plai</code> and <code>racket</code> to write meta-languages.</p>
+<p>Here, we'll create a basic interpreter using this grammar.</p>
+<pre><code class="language-text">&lt;expr&gt;  ::= {+ &lt;expr&gt; &lt;expr&gt;}
+        |   {- &lt;expr&gt; - &lt;expr&gt;}
+        |   &lt;num&gt;
+&lt;num&gt;   ::= a number
+</code></pre>
+<p>Our goal is to write an interpreter that correctly evaluates expressions; for example, <code>(interp {+ {- 1 2} {+ 3 4}}) =&gt; 6</code></p>
+<pre><code class="language-racket">#lang plai
+</code></pre>
+<p><code>(define-type type-id variant...)</code> is how we define types in <code>plai</code>.
+Each <code>variant</code> takes the form <code>[variant-id (field-id contract-expr?)...]</code>.</p>
+<pre><code class="language-racket">(define-type AE
+    [num    (n number?)]
+    [add    (l AE?)
+            (r AE?)]
+    [sub    (l AE?)
+            (r AE?)])
+</code></pre>
+<p>We use <code>define</code> to define functions or variables.</p>
+<pre><code class="language-racket">(define (interp an-ae)
+    (type-case AE an-ae)
+        [num    (n) n]
+        [add    (l r)   (+  (interp l)
+                            (interp r))]
+        [sub    (l r)   (-  (interp l)
+                            (interp r))])
+</code></pre>
+<p>We use <code>type-case</code> to determine which case of a type the variable is.
+The syntax is <code>(type-case type variable)</code> where <code>type</code> is the name of the type and <code>variable</code> is the variable of that type.
+<code>type-case</code> automatically raises an error when it is not filled with all cases of type <code>type</code>.</p>
+
+
+
+
+        <footer>
+            
+
+    <hr>
+
+    <div>Powered by
+        <a href="https://golang.org/">Go</a>,
+        <a href="https://github.com/ellifteria/grafe">graf&emacr;</a>, and
+        <a href="https://github.com/ellifteria/grafe-tuftexx">graf&emacr; Tufte++</a>
+    </div>
+
+
+        </footer>
+    </body>
+
+</html>
+
+
+
+

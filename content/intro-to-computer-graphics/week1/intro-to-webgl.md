@@ -7,6 +7,6 @@ date: 24-01-03
 Template: page
 Params:
     BackLink: intro-to-computer-graphics
-    BackLinkName: Introduction to Computer Graphics
+    BackLinkText: Introduction to Computer Graphics
 Draft: true
 ---
