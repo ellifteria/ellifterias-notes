@@ -1,14 +1,15 @@
 ---
-Title: Ellifteria's Notes
-Summary: Notes by Elli Beres
-Tags:
-- Home
-date: 24-01-03
-Template: page
+title: ellifteria's notes
+summary: a collection of notes by elli beres
+template: home
+socials:
+    -   name: website
+        link: https://elliberes.me
+    -   name: github
+        link: https://github.com/ellifteria
+    -   name: mastodon
+        link: https://discuss.systems/@ellifteria
+navbarName: home
 ---
 
-## Subjects
-
-- [[intro-to-computer-graphics/index|Introduction to Computer Graphics]]
-- [[computer-system-security/index|Introduction to Computer System Security]]
-- [[programming-languages/index|Programming Languages]]
+Check out a list of topics [[topics/index|here]].

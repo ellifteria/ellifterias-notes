@@ -1,2 +1,0 @@
-# Ellifteria's Notes
-
